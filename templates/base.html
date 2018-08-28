@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>{% block title %}V2EX{% endblock %}</title>
+    {% block head %}
+        <style>
+            body {
+                width: 100%;
+                margin: 0 auto;
+                background: #e2e2e2;
+            }
+            .nav-top {
+                display: flex;
+                background: white;
+                padding: 10px 0px;
+                padding-left: 120px;
+            }
+
+            .title {
+                width: 94px;
+                height: 30px;
+                background-image: url(https://www.v2ex.com/static/img/v2ex@2x.png);
+                background-size: 94px 30px;
+                background-repeat: no-repeat;
+                display: inline-block;
+            }
+
+            .form-input {
+                width: 276px;
+                height: 28px;
+                background-size: 276px 28px;
+                background-image: url(https://www.v2ex.com/static/img/qbar_light@2x.png);
+                background-repeat: no-repeat;
+                display: inline-block;
+                margin-left: 20px;
+                margin-top: 2px;
+            }
+
+            .form-input input {
+                margin-left: 30px;
+                width: 220px;
+                line-height: 19px;
+                margin-top: 1px;
+                border: none;
+                outline: none;
+            }
+
+            .div-a {
+                margin-left: 400px;
+                margin-top: 5px;
+            }
+
+            .div-a span {
+                margin-right: 10px;
+            }
+
+            .div-a a {
+                text-decoration: none;
+                color: #556;
+            }
+
+            .footer {
+                margin-top: 25px;
+                padding-left: 100px;
+                background: white;
+                padding-top: 20px;
+                clear: both;
+            }
+
+            .footer-top {
+                padding-bottom: 20px;
+            }
+
+            .footer-top a {
+                display: inline-block;
+                color: gray;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .online {
+                color: gray;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .snow {
+                color: #e2e2e2;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .footer-m {
+                font-size: 14px;
+                line-height: 25px;
+                color: #999;
+            }
+
+            .footer-e {
+                font-size: 11px;
+                color: #ccc;
+                margin-top: 25px;
+                line-height: 22px;
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <div class="nav">
+        {% block content %}
+            <div class="nav-top">
+                <div>
+                    <a href="/{{ n_id }}"><span class="title"></span></a>
+                </div>
+                <div class="form-input">
+                    <form>
+                        <input name="content">
+                    </form>
+                </div>
+                {% if user_id == 0 %}
+                <div class="div-a">
+                    <span><a href="/{{ n_id }}">主页</a></span>
+                    <span><a href="/register">注册</a></span>
+                    <span><a href="/login">登录</a></span>
+                </div>
+                {% else %}
+                <div class="div-a">
+                    <span><a href="/{{ n_id }}">首页</a></span>
+                    <span><a href="/index/{{ n_id }}/{{ name }}">{{ name }}</a></span>
+                    <!--<span><a href="#">记事本</a></span>-->
+                    <!--<span><a href="#">时间轴</a></span>-->
+                    <!--<span><a href="#">设置</a></span>-->
+                    <span><a href="/login_out">登出</a></span>
+                </div>
+                {% endif %}
+            </div>
+        {% endblock %}
+    </div>
+    <div class="footer">
+        {% block footer %}
+        <div class="footer-top">
+            <span><a href="#">关于</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">FAQ</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">API</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">我们的愿景</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">广告投放</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">鸣谢</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span><a href="#">实用小工具</a></span>
+            &nbsp; <span class="snow">·</span> &nbsp;
+            <span class="online">1960 人在线</span>
+        </div>
+        <div class="footer-m">
+            <div>创意工作者们的社区</div>
+            <div>World is powered by solitude</div>
+        </div>
+        <div class="footer-e">
+            <div>VERSION: 3.9.8.1 · 5ms · UTC 15:16 · PVG 23:16 · LAX 08:16 · JFK 11:16</div>
+            <div>♥ Do have faith in what you're doing.</div>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+</html>

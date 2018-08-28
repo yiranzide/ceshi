@@ -1,0 +1,373 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ node_title }}
+{% endblock %}
+{% block head %}
+  {{ super() }}
+   <style type="text/css">
+      .user {
+          margin-top: 25px;
+          background: white;
+          padding-left: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          margin-left: 120px;
+          width: 750px;
+          line-height: 30px;
+          border-radius: 4px;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .user-1 {
+          display: flex;
+      }
+
+      .u-1-2 {
+          margin-left: 10px;
+      }
+
+      .u-1-3 {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 150%;
+          margin: 0px 0px 10px 0px;
+          padding: 0px;
+      }
+
+      .u-1-4 {
+          color: #999;
+          font-size: 14px;
+          line-height: 23px;
+          text-align: left;
+      }
+
+      .user-2 {
+          height: 40px;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .user-2 img {
+          border-radius: 24px;
+          margin-top: -2px;
+          width: 24px;
+          margin-right: 15px;
+      }
+
+      .user-2 a {
+          font-size: 14px;
+          display: inline-block;
+          text-decoration: none;
+          margin-right: 15px;
+          padding: 0 5px 5px 5px;
+          color: #778087;
+      }
+
+      .user-2 a:hover {
+          border-bottom: 3px solid #f0f0f0;
+          text-decoration: none;
+          color: #4d5256;
+      }
+
+      .user-3 {
+          padding-left: 0px;
+          padding-top: 0px;
+          padding-right: 20px;
+      }
+
+      .user-3-1 {
+          font-size: 14px;
+          color: #999;
+          padding: 5px 20px;
+          border-bottom: 1px solid #e2e2e2;
+          width: 740px;
+      }
+
+      .user-3-2 {
+          padding-left: 15px;
+      }
+
+      .user-3-2 a {
+          color: #778087;xz
+          text-decoration: none;
+          font-size: 14px;
+      }
+
+      .user-3-2 a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .gua-h {
+          border-bottom: 3px solid #778087;
+      }
+
+      .list {
+          background: white;
+          padding-left: 20px;
+          padding-top: 10px;
+          margin-left: 120px;
+          width: 750px;
+          border-radius: 4px;
+          border-bottom: 1px solid #e2e2e2;
+
+      }
+
+      .list a {
+          text-decoration: none;
+      }
+
+      .list-1 {
+          margin-bottom: 10px;
+      }
+
+      .list-1 a {
+          color: #778087;
+          font-size: 16px;
+          text-shadow: 0 1px 0 #fff;
+      }
+
+      .list-1 a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .list-2 {
+          font-size: 12px;
+          color: #ccc;
+      }
+
+      .list-2 a {
+          font-size: 12px;
+          color: #ccc;
+      }
+
+      a.list-2-1{
+          background-color: #f5f5f5;
+          font-size: 12px;
+          border-radius: 2px;
+          color: #999;
+          padding: 4px 4px 4px 4px;
+      }
+
+      a.list-2-1:hover {
+          text-decoration: none;
+          background-color: #e2e2e2;
+          color: #777;
+      }
+
+      a.list-2-2, a.list-2-3 {
+          color: #778087;
+          font-weight: bold;
+          font-size: 12px;
+      }
+
+      a.list-2-2:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      a.list-2-3:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .q-detail-comm {
+          font-size: 14px;
+          position: relative;
+          right: -700px;
+          top: -30px;
+      }
+
+      .q-detail-comm a {
+          text-decoration: none;
+          font-weight: 700;
+          border-radius: 12px;
+          color: #fff;
+          background-color: #aab0c6;
+          padding: 2px 15px 2px 15px;
+      }
+
+      .q-detail-comm a:hover {
+          color: #fff;
+          background-color: #969cb1;
+      }
+
+      .u-com-1 {
+          padding: 3px 15px 3px 15px;
+          font-size: 12px;
+          text-align: left;
+          background: #edf3f5;
+          background-image: url(https://www.v2ex.com/static/img/dock_shadow.png);
+          background-repeat: repeat-x;
+          border-bottom: 1px solid #e2e2e2;
+          color: #999;
+          width: 740px;
+      }
+
+      .u-com-1 a {
+          text-decoration: none;
+          color: #778087;
+      }
+
+      .u-com-1 a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .u-com-2 {
+          font-size: 14px;
+          line-height: 1.6;
+          color: #000;
+          padding: 10px;
+          padding-left: 15px;
+          border-bottom: 1px solid #e2e2e2;
+          width: 750px;
+      }
+
+      .cc-time {
+          float: right;
+      }
+   </style>
+   <script>
+
+   </script>
+{% endblock %}
+{% block content %}
+  {{ super() }}
+   <div class="user user-1">
+       <div class="u-1-1">
+           <img src="https://cdn.v2ex.com/gravatar/b146a8743fc06ad77e447e31552e0663?s=73&d=retro">
+       </div>
+       <div class="u-1-2">
+           <div class="u-1-3">{{ u_name }}</div>
+           <div class="u-1-4">V2EX 第 {{ uId }} 号会员，加入于 {{ time }}</div>
+           <div class="u-1-4">今日活跃度排名 500</div>
+       </div>
+   </div>
+   <div  class="user-all-2">
+       <div class="user user-2">
+           <img src="https://cdn.v2ex.com/gravatar/b146a8743fc06ad77e447e31552e0663?s=48&d=retro">
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="/index/{{ n_id }}/{{ u_name }}">{{ u_name }}创建的所有主题</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="#">提问</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="/user/question/1/{{ u_name }}">技术话题</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="#">好玩</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="#">工作信息</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="#">交易信息</a></span>
+           <span><a class="user-2-2" data-id="{{ n_id }}" href="#">城市相关</a></span>
+       </div>
+       {% for q in question %}
+       <div class="list">
+           <div class="list-1"><a href="/question/detail/{{ n_id }}/{{ q.topic_id }}/{{ q.id }}">{{ q.title }}</a></div>
+           <div class="list-2"><a class="list-2-1" href="/question/all/{{ n_id }}/{{ q.topic_id }}">{{ q.name }}</a>  •  <a class="list-2-2" href="/index/{{ n_id }}/{{ name }}">{{ name }}</a>  •  <span class="time" data-time="{{ q.created_time }}"></span>  •  最后回复来自 <a class="list-2-3" href="/index/{{ n_id }}/{{ q.last_name }}">{{ q.last_name }}</a></div>
+           <div class="list-3 q-detail-comm"><a href="/question/detail/{{ n_id }}/{{ q.topic_id }}/{{ q.id }}">{{ q.count }}</a></div>
+       </div>
+       {% endfor %}
+   </div>
+   <div  class="user user-3">
+       <div class="user-3-1">{{ u_name }} 最近回复了</div>
+       {% for c in comment %}
+          <div class="u-com-1">回复了
+              <a href="/index/1/{{ c.username }}">{{ c.username }}</a>
+              创建的主题 › <a href="/question/all/{{ c.node_id }}/{{ c.topic_id }}">{{ c.top_name }}</a> ›
+              <a href="/question/detail/{{ c.node_id }}/{{ c.topic_id }}/{{ c.question_id }}">{{ c.title }}</a>
+              <span class="time cc-time" data-time="{{ c.created_time }}"></span>
+          </div>
+          <div class="u-com-2">{{ c.content }}</div>
+       {% endfor %}
+       {% if mark == 0 %}
+          <div class="user-3-2">» <a href="/user/comment/replies/0/{{ u_name }}">{{ u_name }} 创建的更多回复</a></div>
+       {% else %}
+          <div class="user-3-2">» <a href="/user/comment/replies/{{ n_id }}/{{ u_name }}">{{ u_name }} 创建的更多回复</a></div>
+       {% endif %}
+   </div>
+   <script>
+       $(document).ready(function(){
+          // $('.user-2-2')[0].click()
+       })
+
+       function sendRequest(data, url, method, response){
+           var request = {
+               url: url,
+               type: method,
+               data: data,
+               success: function(r){
+                   var d = JSON.parse(r)
+                   response(d)
+               },
+               error: function(err){
+                   alert('失败')
+               }
+           }
+
+           $.ajax(request)
+       }
+
+       $('.user-2-2').on('click', function(){
+           $('.user-2-2').removeClass('gua-h')
+           $(this).addClass('gua-h')
+           //var nodeId = $(this).data('id')
+           //var data = {
+           //    node_id: nodeId
+           //}
+           //url = '/user/question'
+           //method = 'post'
+           //sendRequest(data, url, method, allQuestion)
+       })
+
+       function allQuestion(d){
+           var nodeId = d.node_id
+           var questions = d.questions
+           alert(questions['q'])
+           // for (i = 0; i < questions.length; i++){
+           //     alert(questions[i])
+           // }
+
+           var template = `
+               {% for q in questions %}
+                  <div>${nodeId}</div
+               {% endfor %}
+           `
+           // alert(template)
+
+           $('.user-2').append(template)
+       }
+
+       var longTimeAgo = function(){
+            var timeAgo = function(time, ago) {
+                return Math.round(time) + ago;
+            }
+
+            $('.time').each(function(i, e){
+                var past = parseInt(e.dataset.time);
+                // alert(past)
+                var now = Math.round(new Date().getTime() / 1000);
+                var seconds = now - past;
+                var ago = seconds / 60;
+                // log('time ago', e, past, now, ago);
+                var oneHour = 60;
+                var oneDay = oneHour * 24;
+                // var oneWeek = oneDay * 7;
+                var oneMonth = oneDay * 30;
+                var oneYear = oneMonth * 12;
+                var s = '';
+                if(seconds < 60) {
+                   s = timeAgo(seconds, ' 秒前')
+                   } else if (ago < oneHour) {
+                       s = timeAgo(ago, ' 分钟前');
+                   } else if (ago < oneDay) {
+                       s = timeAgo(ago/oneHour, ' 小时前');
+                   } else if (ago < oneMonth) {
+                       s = timeAgo(ago / oneDay, ' 天前');
+                   } else if (ago < oneYear) {
+                       s = timeAgo(ago / oneMonth, ' 月前');
+                   }
+                   $(e).text(s);
+                });
+        }
+
+
+       setInterval(function(){
+                longTimeAgo()
+            }, 1000)
+   </script>
+{% endblock %}

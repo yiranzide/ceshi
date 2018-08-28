@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+   <style type="text/css">
+      .topic {
+          margin-top: 25px;
+          background: white;
+          margin-left: 120px;
+          padding-left: 20px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+          line-height: 30px;
+          width: 750px;
+      }
+   </style>
+   <script>
+
+   </script>
+{% endblock %}
+{% block content %}
+   {{ super() }}
+   <div class="topic">
+       <form action="/topic/add" method="post">
+           <input name="name" placeholder="增加话题">
+           <input name="node_id" value="{{ nid }}" type="hidden">
+           <button>增加</button>
+       </form>
+       {% for t in topic %}
+           <div> {{ t.id }}、{{ t.name }} <a href="/topic/edit/{{ t.id }}">修改</a>  <a href="/topic/delete/{{ t.id }}">删除</a></div>
+       {% endfor %}
+   </div>
+{% endblock %}

@@ -1,0 +1,563 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ node_title }}
+{% endblock %}
+{% block head %}
+  {{ super() }}
+   <style type="text/css">
+      .node {
+          margin-top: 25px;
+          background: white;
+          padding-left: 20px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+          margin-left: 120px;
+          width: 750px;
+          line-height: 30px;
+      }
+
+      .all {
+          margin-top: 25px;
+          background: white;
+          margin-left: 120px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          width: 750px;
+          padding-left: 20px;
+          line-height: 14px;
+          border-radius: 4px 4px 0px 0px;
+      }
+
+      .all a {
+          text-decoration: none;
+          font-size: 14px;
+          color: #555;
+          padding: 3px 8px;
+          border-radius: 5px;
+      }
+
+      .all a:hover {
+          background-color: #f5f5f5;
+          color: #000;
+      }
+
+      .topic-all {
+          background-color: #f9f9f9;
+          margin-left: 120px;
+          padding: 10px 10px 10px 20px;
+          width: 740px;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .question-all {
+          display: flex;
+          background: white;
+          margin-left: 120px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          width: 750px;
+          padding-left: 20px;
+          line-height: 14px;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .topic-all a {
+          font-size: 14px;
+          text-decoration: none;
+          color: #778087;
+          padding: 3px 8px;
+      }
+
+      .topic-all a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .f-right {
+          float: right;
+          background: white;
+          margin-right: 65px;
+          margin-top: 25px;
+          border-radius: 5px;
+          width: 280px;
+      }
+
+      .f-right-top {
+          padding: 10px;
+          font-size: 14px;
+          line-height: 24px;
+          text-align: left;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .al-l {
+          padding: 10px;
+          font-size: 14px;
+          line-height: 24px;
+          text-align: left;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .div-f-b {
+          font-weight: bold;
+      }
+
+      .div-f-font {
+          color: #ccc;
+      }
+
+      .f-right-b {
+          text-align: center;
+          padding: 10px;
+          font-size: 14px;
+          line-height: 30px;
+              }
+
+      .f-right-b a {
+          text-decoration: none;
+      }
+
+      .already-r a {
+          color: #778087;
+      }
+
+      .already-r a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .f-right-b button {
+          border: none;
+          outline: none;
+          background-color: #fff;
+          text-shadow: 0 1px 0 #fff;
+          text-decoration: none;
+          font-weight: 700;
+          box-shadow: 0 1px 0 rgba(66,66,77,.1);
+          border: 1px solid rgba(80,80,90,.2);
+          padding: 4px 8px 4px 8px;
+          border-bottom-color: rgba(80,80,90,.35);
+          border-radius: 3px;
+          font-size: 14px;
+      }
+
+      .f-right-b button a {
+          color: #333;
+          text-shadow: 0 1px 0 #fff;
+      }
+
+      .f-right-b button a:hover {
+          background-color: #f9f9f9;
+          text-shadow: 0 1px 0 #fff;
+          box-shadow: 0 1px 0 rgba(66,66,77,.1);
+      }
+
+      .f-right-n {
+          float: right;
+          position: relative;
+          background: white;
+          border-radius: 3px;
+          margin-right: -280px;
+          width: 260px;
+          padding: 10px;
+          font-size: 14px;
+          color: #ccc;
+          border-bottom: 1px solid #e2e2e2;
+          margin-bottom: 20px;
+      }
+
+      .f-right-1 {
+          margin-top: 170px;
+      }
+
+      .f-right-2 {
+          margin-top: 595px;
+      }
+
+      .f-right-3 {
+          margin-top: 770px;
+      }
+
+      .f-right-4 {
+          margin-top: 945px;
+      }
+
+      .gua-hide {
+          display: none;
+      }
+
+      .node-f-r {
+          float: right;
+          margin-right: 30px;
+          font-weight: bold;
+          font-size: 30px;
+          margin-top: -20px;
+      }
+
+      .node-f-r:hover {
+          cursor: pointer;
+      }
+
+      .node-f-x {
+          font-weight: normal;
+          font-size: 18px;
+          color: #555;
+      }
+
+      .user-name {
+          color: #778087;
+          margin-left: 10px;
+          font-size: 14px;
+      }
+
+      .ques-f-r {
+          margin-left: 10px;
+          line-height: 25px;
+      }
+
+      .q-title a {
+          color: #778087;
+          text-decoration: none;
+          word-break: break-all;
+      }
+
+      .q-title a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .q-detail span {
+          font-size: 12px;
+          color: #ccc;
+          margin-right: 10px;
+      }
+
+      .que-button {
+          border:none;
+          outline: none;
+          background-color: #f5f5f5;
+      }
+
+      .que-button a {
+          text-decoration: none;
+          color: #999;
+          font-size: 12px;
+          border-radius: 4px;
+      }
+
+      .que-button:hover {
+          text-decoration: none;
+          background-color: #e2e2e2;
+          color: #777;
+      }
+
+      .detail-a a {
+          color: #778087;
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      .detail-a a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .gua-back {
+          background: black;
+      }
+
+      .q-detail-comm {
+          float: right;
+          font-size: 14px;
+          margin-top: -50px;
+          margin-right: 40px;
+      }
+
+      .q-detail-comm a {
+          text-decoration: none;
+          font-weight: 700;
+          border-radius: 12px;
+          color: #fff;
+          background-color: #aab0c6;
+          padding: 2px 15px 2px 15px;
+      }
+
+      .q-detail-comm a:hover {
+          color: #fff;
+          background-color: #969cb1;
+      }
+
+      .red-top {
+          border-bottom: 1px solid #e2e2e2;
+          width: 300px;
+          margin-left: -20px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+      }
+
+      .circle {
+          font-size: 14px;
+          line-height: 14px;
+          padding: 4px 10px 4px 10px;
+          margin: 0 5px 5px 0;
+          border-radius: 16px;
+          display: inline-block;
+          border: 1px solid #e5e5e5;
+          color: #778087;
+          text-decoration: none;
+      }
+
+      .circle:hover {
+          text-decoration: none;
+          color: #333;
+          border: 1px solid #ccc;
+          box-shadow: 0 1px 2px rgba(0,0,32,.1);
+      }
+
+      .mt-all {
+          display: flex;
+          background: white;
+          margin-left: 0px;
+          padding-top: 11px;
+          padding-bottom: 7px;
+          padding-left: 0px;
+          line-height: 14px;
+          border-bottom: 1px solid #e2e2e2;
+      }
+
+      .t-tic {
+          margin-left: 7px;
+      }
+
+      .t-tic a {
+          color: #778087;
+          text-decoration: none;
+      }
+
+      .t-tic a:hover {
+          color: #4d5256;
+          text-decoration: underline;
+      }
+
+      .red-dis {
+          margin-top: 15px;
+      }
+
+      .shequ {
+          display: flex;
+          background: white;
+          margin-left: 10px;
+          padding-top: 11px;
+          padding-bottom: 7px;
+          padding-left: 0px;
+          line-height: 14px;
+          font-size: 14px;
+          line-height: 25px;
+          color: #999;
+      }
+
+      .shequ-1 {
+          margin-left: 28px;
+      }
+
+      .shequ-2 {
+          margin-left: 10px;
+          font-weight: bold;
+          color: black;
+      }
+   </style>
+{% endblock %}
+{% block content %}
+   {{ super() }}
+   {% if user_id == 1 %}
+       <div class="node">
+           <span class="node-f-r"><span class="node-f-x">点击查看所有板块</span>  +</span>
+           <div class="gua-show gua-hide">
+               <form action="/add" method="post">
+                   <input name="name" placeholder="增加板块">
+                   <button>提交</button>
+               </form>
+               {% for n in node %}
+                   <div>{{ n.id }}、{{ n.name }} <a href="/edit/{{ n.id }}">修改</a>  <a href="/delete/{{ n.id }}">删除</a>  <a href="/node/topic/{{ n.id }}">所有话题</a></div>
+               {% endfor %}
+           </div>
+       </div>
+   {% endif %}
+   <div class="f-right">
+       {% if user_id == 0 %}
+       <div class="f-right-top">
+           <div class="div-f-b">V2EX = way to explore</div>
+           <div class="div-f-font">V2EX 是一个关于分享和探索的地方</div>
+       </div>
+       <div class="f-right-b">
+           <div><button><a href="/register">现在注册</a></button></div>
+           <div class="already-r">已注册用户请  <a href="/login">登录</a></div>
+       </div>
+       {% else %}
+           <div class="al-l">
+               <div>
+                   <a href="/index/{{ n_id }}/{{ name }}"><img src="https://cdn.v2ex.com/gravatar/b146a8743fc06ad77e447e31552e0663?s=48&d=retro"></a>
+                   <span class="user-name"><a href="/index/{{ n_id }}/{{ name }}">{{ name }}</a></span>
+               </div>
+               <div>
+                   {% if t.id == 0 %}
+                       <a href="#">创作新主题</a>  <span>请先选择一个话题才能发表新的主题</span>
+                   {% else %}
+                       <a href="/question/add/{{ q_n_id }}/{{ t.id }}">创作新主题</a>
+                   {% endif %}
+               </div>
+           </div>
+       {% endif %}
+   </div>
+   <div class="f-right-n f-right-1">
+       <div>
+           今日热议主题
+       </div>
+       <div class="red-top"></div>
+       <div>
+           {% for t in mt %}
+           <div class="mt-all">
+               <div><a class="t-pic" href="/index/{{ t[1] }}/{{ t[2] }}">
+                   <img src="https://cdn.v2ex.com/gravatar/b146a8743fc06ad77e447e31552e0663?s=48&amp;d=retro" height="25" width="25">
+               </a>
+               </div>
+               <div class="t-tic">
+                   <a href="/question/detail/{{ t[1] }}/{{ t[3] }}/{{ t[4] }}">{{ t[0] }}</a>
+               </div>
+           </div>
+           {% endfor %}
+       </div>
+   </div>
+   <div class="f-right-n f-right-2">
+       <div>
+           最热节点
+       </div>
+       <div class="red-top"></div>
+       <div class="red-dis">
+           {% for l in ml %}
+               <a class="circle" href="/topic/all/{{ l[1] }}">{{ l[0] }}</a>
+           {% endfor %}
+       </div>
+   </div>
+   <div class="f-right-n f-right-3">
+       <div>
+           最近新增节点
+       </div>
+       <div class="red-top"></div>
+       <div class="red-dis">
+           {% for l in dl %}
+               <a class="circle" href="/topic/all/{{ l[1] }}">{{ l[0] }}</a>
+           {% endfor %}
+       </div>
+   </div>
+   <div class="f-right-n f-right-4">
+       <div>
+           社区运行状况
+       </div>
+       <div class="red-top"></div>
+       <div class="shequ">
+           <div>
+               <div>注册会员</div>
+               <div class="shequ-1">主题</div>
+               <div class="shequ-1">回复</div>
+           </div>
+           <div class="shequ-2">
+               {% if shequ %}
+               <div>{{ shequ[0] }}</div>
+               <div>{{ shequ[1] }}</div>
+               <div>{{ shequ[2] }}</div>
+               {% endif %}
+           </div>
+       </div>
+   </div>
+   <div class="all">
+   {% for n in node%}
+      <span><a class="all-a" href="/topic/all/{{ n.id }}" data-id={{ n.id }}>{{ n.name }}</a></span>
+   {% endfor %}
+   </div>
+   <div class="topic-all">
+   {% for t_n in topic_node %}
+       <span><a class="topic-a-all" href="/question/all/{{ n_id }}/{{ t_n.id }}">{{ t_n.name }}</a></span>
+   {% endfor %}
+   </div>
+   <div>
+   {% for q in question %}
+       <div class="question-all">
+          <div><a href="/index/{{ n_id }}/{{ q.name }}"><img src="https://cdn.v2ex.com/gravatar/b146a8743fc06ad77e447e31552e0663?s=48&d=retro"></a></div>
+          <div class="ques-f-r">
+              <div class="q-title"><a href="/question/detail/{{ nodeId }}/{{ q.topic_id }}/{{ q.id }}">{{ q.title }}</a></div>
+              <div class="q-detail">
+                  <span><button class="que-button"><a href="/question/all/{{ q.node_id }}/{{ q.topic_id }}">{{ q.topic_name }}</a></button></span>
+                  <span>•</span>
+                  <span class="detail-a"><a href="/index/{{ n_id }}/{{ q.name }}">{{ q.name }}</a></span>
+                  <span>•</span>
+                  <span class="time" data-time="{{ q.created_time }}"></span>
+                  <span>•</span>
+                  <span  class="detail-a">最后回复来自 <a href="/index/{{ n_id }}/{{ q.commentName }}">{{ q.commentName }}</a></span>
+              </div>
+          </div>
+          <!--<div class="q-detail-comm"><a href="#">{{ q.count }}</a></div>-->
+       </div>
+       <div class="q-detail-comm"><a href="/question/detail/{{ nodeId }}/{{ q.topic_id }}/{{ q.id }}">{{ q.count }}</a></div>
+   {% endfor %}
+   </div>
+   <script>
+       $(document).ready(function(){
+            for (i = 0; i < $('.all-a').length; i++){
+                if ($($('.all-a')[i]).text() == document.title){
+                    $($('.all-a')[i]).addClass('gua-back')
+                    $($('.all-a')[i]).closest('a').css("color","#fff");
+                }
+            }
+       })
+
+       $('.node-f-r').on('click', function(){
+           $('.gua-show').toggleClass('gua-hide')
+           // $('.gua-show').slideToggle()
+           if ($('.gua-show').hasClass('gua-hide')){
+               $('.node-f-x').text('点击查看所有板块')
+           }
+           else {
+              $('.node-f-x').text('收起')
+           }
+       })
+
+       var longTimeAgo = function(){
+            var timeAgo = function(time, ago) {
+                return Math.round(time) + ago;
+            }
+
+            $('.time').each(function(i, e){
+                var past = parseInt(e.dataset.time);
+                // alert(past)
+                var now = Math.round(new Date().getTime() / 1000);
+                var seconds = now - past;
+                var ago = seconds / 60;
+                // log('time ago', e, past, now, ago);
+                var oneHour = 60;
+                var oneDay = oneHour * 24;
+                // var oneWeek = oneDay * 7;
+                var oneMonth = oneDay * 30;
+                var oneYear = oneMonth * 12;
+                var s = '';
+                if(seconds < 60) {
+                   s = timeAgo(seconds, ' 秒前')
+                   } else if (ago < oneHour) {
+                       s = timeAgo(ago, ' 分钟前');
+                   } else if (ago < oneDay) {
+                       s = timeAgo(ago/oneHour, ' 小时前');
+                   } else if (ago < oneMonth) {
+                       s = timeAgo(ago / oneDay, ' 天前');
+                   } else if (ago < oneYear) {
+                       s = timeAgo(ago / oneMonth, ' 月前');
+                   }
+                   $(e).text(s);
+                });
+        }
+
+
+       setInterval(function(){
+                longTimeAgo()
+            }, 0.1)
+   </script>
+{% endblock %}

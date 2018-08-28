@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    编辑
+{% endblock %}
+{% block head %}
+  {{ super() }}
+   <style type="text/css">
+      .edit {
+          margin-top: 25px;
+          background: white;
+          height: 150px;
+          padding-left: 120px;
+          padding-top: 30px;
+      }
+   </style>
+   <script>
+
+   </script>
+{% endblock %}
+{% block content %}
+  {{ super() }}
+   <div class="edit">
+       <form action="/topic/update" method="post">
+           <input name="name" placeholder="话题名字">
+           <input name="tid" value="{{ tId }}" type="hidden">
+           <br>
+           <button>更新</button>
+       </form>
+   </div>
+{% endblock %}

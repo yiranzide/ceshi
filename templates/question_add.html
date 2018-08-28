@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ node_title }}
+{% endblock %}
+{% block head %}
+  {{ super() }}
+   <style type="text/css">
+      .publish {
+          margin-top: 25px;
+          background: white;
+          height: 150px;
+          padding-left: 120px;
+          padding-top: 30px;
+      }
+   </style>
+   <script>
+
+   </script>
+{% endblock %}
+{% block content %}
+  {{ super() }}
+   <div class="publish">
+       <form action="/question/publish" method="post">
+           <input name="title" placeholder="标题">
+           <br>
+           <textarea name="content"></textarea>
+           <input name="topic_id" value="{{ tId }}" type="hidden">
+           <input name="node_id" value="{{ nId }}" type="hidden">
+           <br>
+           <button>发表</button>
+       </form>
+   </div>
+{% endblock %}
