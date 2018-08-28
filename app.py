@@ -23,8 +23,6 @@ manager = Manager(app)
 red = redis.Redis(host='localhost', port=6379, db=0)
 
 
-
-
 ns = Node.query.all()
 for n in ns:
     red.lpush('l1', n.name)
